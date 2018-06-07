@@ -42,8 +42,12 @@ public class Threadd {
     public static void main(String[] args) {
         // TODO code application logic here
         
-         corre e =new corre("hola");
-         new Thread(e).start(); //objeto anonimo
+        //objeto anonimo
+        for (int i = 0; i < 5; i++) {
+             new Thread( new corre("prueba "+ i)).start();
+            
+        }
+         
         
         
         
