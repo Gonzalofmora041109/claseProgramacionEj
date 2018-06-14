@@ -8,10 +8,40 @@ package principal;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+//clase cliente //
+ class cliente {
+     private String nombre;
+     private String pass;
 
+    
+     
+     
+    public String getNombre() {
+        return nombre;
+    }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+ 
+    
+ 
+ 
+ 
+ 
+ }
 
 /**
  *
@@ -22,7 +52,9 @@ public class servidor_caracola {
     public static final int    SIQ_SOLICITUD_STATUS = 1;
     public static final int    SIQ_PUERTO_SOCKET=8080;
     public static final int    gmm_PUERTO_PAR_IMPAR=2;
-         
+   public static final int    gmm_comando3=3
+;    
+    
     public void  inicia_servicio_socket(){
       Date fecha_actual = Calendar.getInstance().getTime();
       
@@ -31,6 +63,10 @@ public class servidor_caracola {
        System.out.println("Servidor Caracola version " + SIQ_VERSION );
        System.out.println("Inicio del servicio Socket en puerto " +SIQ_PUERTO_SOCKET);
       
+       
+       
+       
+       
         
         ServerSocket   siq_servidor; 
         siq_servidor=null;

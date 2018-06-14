@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
  
 
@@ -21,9 +23,21 @@ public class procesa_solicitudes_via_socket_de_caracola implements Runnable{
         Socket siq_socket;    
         BufferedReader  siq_leer_socket; 
         BufferedWriter  siq_escribe_socket ;
-           
+        List <cliente> user=new ArrayList<>();    
       procesa_solicitudes_via_socket_de_caracola(Socket siq_tmp_socket){
             siq_socket = siq_tmp_socket;  
+            
+            cliente user1=new cliente();
+            user1.setNombre("abril");
+            user1.setPass("pass");
+            user.add(user1);
+            
+              cliente user2=new cliente();
+            user1.setNombre("clau");
+            user1.setPass("pass");
+            user.add(user2);
+            
+            
             
         try {
             siq_leer_socket    = new BufferedReader(new InputStreamReader(siq_socket.getInputStream()));
@@ -105,7 +119,7 @@ public class procesa_solicitudes_via_socket_de_caracola implements Runnable{
                         
                         
                 }  //final solicita status  
-                case servidor_caracola.gmm_PUERTO_PAR_IMPAR: 
+                case servidor_caracola.gmm_PUERTO_PAR_IMPAR: {
                     String numero_entero=siq_particionado[1];
                     String retorno="";
                     try{
@@ -121,7 +135,14 @@ public class procesa_solicitudes_via_socket_de_caracola implements Runnable{
                     }
                     
                     EnviaTcp(retorno); 
-                        break ;
+                        break ;}
+                case servidor_caracola.gmm_comando3 :{
+                    
+                
+                }
+                        
+                        
+                    
            
             default:{//comando no conocido
                 EnviaTcp("desconocido");                            
