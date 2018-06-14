@@ -21,7 +21,7 @@ public class servidor_caracola {
     public static final String SIQ_VERSION = "0.1";
     public static final int    SIQ_SOLICITUD_STATUS = 1;
     public static final int    SIQ_PUERTO_SOCKET=8080;
-    
+    public static final int    gmm_PUERTO_PAR_IMPAR=2;
          
     public void  inicia_servicio_socket(){
       Date fecha_actual = Calendar.getInstance().getTime();

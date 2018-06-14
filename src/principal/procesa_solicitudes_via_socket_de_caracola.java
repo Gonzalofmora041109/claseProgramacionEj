@@ -84,9 +84,13 @@ public class procesa_solicitudes_via_socket_de_caracola implements Runnable{
         } 
         int siq_codigo = 0;
                String numberAsString = siq_particionado[0];
-               
+              
+        
         try{            
               siq_codigo = Integer.parseInt(numberAsString);
+             
+              
+              
         }catch(NumberFormatException e){ }
         
         System.out.println("codigo:" + siq_codigo + " --- parametro:" + siq_particionado[1]);
@@ -98,8 +102,26 @@ public class procesa_solicitudes_via_socket_de_caracola implements Runnable{
                 case servidor_caracola.SIQ_SOLICITUD_STATUS:{  
                         EnviaTcp("Alive");                            
                         break;
+                        
+                        
                 }  //final solicita status  
-                  
+                case servidor_caracola.gmm_PUERTO_PAR_IMPAR: 
+                    String numero_entero=siq_particionado[1];
+                    String retorno="";
+                    try{
+                        
+                    int entero=Integer.parseInt(numero_entero);
+                    if(entero %2==0){
+                    retorno="par";
+                    
+                    }
+                    else  retorno="impar";}
+                    catch(Exception e){
+                      retorno ="valor incorrecto";
+                    }
+                    
+                    EnviaTcp(retorno); 
+                        break ;
            
             default:{//comando no conocido
                 EnviaTcp("desconocido");                            
