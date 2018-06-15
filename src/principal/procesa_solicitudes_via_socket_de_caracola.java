@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package principal; 
+import Modelo.Conexion;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -137,7 +138,8 @@ public class procesa_solicitudes_via_socket_de_caracola implements Runnable{
                     EnviaTcp(retorno); 
                         break ;}
                 case servidor_caracola.gmm_comando3 :{
-                    
+                    Conexion c =new Conexion();
+                    List nombre
                 
                 }
                         
